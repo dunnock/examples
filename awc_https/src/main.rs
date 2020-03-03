@@ -1,4 +1,5 @@
-use actix_web::{web, App, HttpRequest, HttpResponse, HttpServer, client::{Client, Connector}};
+use actix_web::{web, App, HttpRequest, HttpResponse, HttpServer};
+use awc::Client;
 
 async fn index(req: HttpRequest) -> HttpResponse {
 
