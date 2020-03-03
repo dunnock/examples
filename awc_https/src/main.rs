@@ -1,17 +1,10 @@
 use actix_web::{web, App, HttpRequest, HttpResponse, HttpServer, client::{Client, Connector}};
-use openssl::ssl::{SslConnector, SslMethod};
-
 
 async fn index(req: HttpRequest) -> HttpResponse {
-	let builder = SslConnector::builder(SslMethod::tls()).unwrap();
-
-    let client = Client::build()
-        .connector(Connector::new().ssl(builder.build()).finish())
-        .finish();
 
 	let now = std::time::Instant::now();
     let payload =
-        client
+        Client::default()
         .get("https://upload.wikimedia.org/wikipedia/commons/f/ff/Pizigani_1367_Chart_10MB.jpg")
         .send()
         .await

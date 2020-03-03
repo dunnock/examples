@@ -8,5 +8,4 @@ workspace = ".."
 
 [dependencies]
 actix-rt = "1.0.0"
-actix-web = { version = "2.0.0", features = ["openssl"] }
-openssl = "0.10.28"
+actix-web = { version = "2.0.0", features = ["openssl"], git = "https://github.com/dunnock/actix-web", branch = "h2-speed-1393" }
